@@ -1,0 +1,247 @@
+/* Обнуление базовых отступов для секции, если необходимо */
+#hero {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  min-height: 80vh; /* Занимает 80% высоты экрана */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 10%; /* Отступы по бокам для текста */
+  color: #ffffff;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Плавный переход при смене фонового рисунка */
+  transition: background 0.5s ease-in-out; 
+}
+
+/* Эффект затемнения (Overlay), чтобы белый текст отлично читался на любом фоне */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Темный градиент: темнее слева (где текст) и снизу */
+  background: linear-gradient(
+    to right, 
+    rgba(0, 0, 0, 0.8) 0%, 
+    rgba(0, 0, 0, 0.4) 60%, 
+    rgba(0, 0, 0, 0.2) 100%
+  ),
+  linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5) 0%,
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+/* Поднимаем контент над слоем затемнения */
+.hero h1, 
+.hero h4 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Дополнительная тень для букв */
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem); /* Адаптивный размер шрифта */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.hero h4 {
+  font-size: clamp(1.1rem, 2vw, 1.8rem); /* Адаптивный размер шрифта */
+  font-weight: 500;
+  opacity: 0.9; /* Слегка приглушаем подзаголовок */
+  max-width: 600px; /* Чтобы текст красиво переносился, а не растягивался в одну строку */
+  line-height: 1.4;
+}
+/* Обертка для всей формы поиска */
+.hero-search-form {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Ограничение максимальной ширины строки */
+  margin: 25px 0 0 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 30px; /* Закругленные края */
+  overflow: hidden; /* Чтобы инпут и кнопка не вылезали за скругление */
+}
+
+/* Обертка для всей формы поиска */
+.hero-search-form {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 25px 0 0 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  overflow: hidden;
+  z-index: 10; /* Поднимаем всю форму выше фонового затемнения */
+}
+
+/* Стили для самого поля ввода (инпута) */
+.hero-search-form input {
+  width: 100%;
+  height: 50px;
+  padding: 10px 130px 10px 25px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333333;
+  background-color: #ffffff;
+  font-family: inherit;
+  
+  /* ЭТИ ДВЕ СТРОКИ ОЧЕНЬ ВАЖНЫ: */
+  position: relative;
+  z-index: 1; /* Инпут теперь выше всех невидимых слоев */
+}
+
+.hero-search-form input::placeholder {
+  color: #999999;
+}
+
+/* Стили для кнопки "Искать" */
+.hero-search-form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 0 30px;
+  border: none;
+  outline: none;
+  background: linear-gradient(90deg, #01b4e4 0%, #00d2c4 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: opacity 0.2s ease-in-out;
+  
+  /* Кнопка должна быть строго НАД инпутом, но только с краю */
+  z-index: 2; 
+}
+
+.hero-search-form button:hover {
+  opacity: 0.9;
+}   
+/* Эффект свечения всей формы, когда инпут активен */
+.hero-search-form:focus-within {
+  box-shadow: 0 4px 20px rgba(1, 180, 228, 0.4); /* Бирюзовая тень */
+  transition: box-shadow 0.2s ease-in-out;
+}
+/* Контейнер для списка карточек */
+.home-movies-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;            /* Включает горизонтальную прокрутку */
+  overflow-y: hidden;          /* Прячет вертикальный скролл, если он появится */
+  padding-bottom: 15px;        /* Отступ снизу, чтобы скроллбар не перекрывал текст карточек */
+  scroll-behavior: smooth;     /* Плавная прокрутка */
+  
+  /* Настройки для Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #01b4e4 #dbdbdb; 
+}
+
+/* Красивый скроллбар в стиле TMDB для Chrome, Safari и Edge */
+.home-movies-list::-webkit-scrollbar {
+  height: 8px;                 /* Высота полосы прокрутки */
+}
+
+.home-movies-list::-webkit-scrollbar-track {
+  background: #f1f1f1;         /* Цвет дорожки */
+  border-radius: 10px;
+}
+
+.home-movies-list::-webkit-scrollbar-thumb {
+  background: #01b4e4;         /* Фирменный цвет TMDB для ползунка */
+  border-radius: 10px;
+}
+
+.home-movies-list::-webkit-scrollbar-thumb:hover {
+  background: #00a0d2;         /* Цвет ползунка при наведении */
+}
+.home-trending-section {
+  font-family: 'Source Sans Pro', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #0c1a30; /* Красивый глубокий темно-синий/черный цвет вместо обычного скучного #000 */
+  margin-bottom: 20px;
+  letter-spacing: -0.5px; /* Слегка уменьшаем межбуквенное расстояние для стиля */
+}
+.hero-search-form {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto 0 auto;
+  position: relative;
+  height: 54px !important; /* Увеличили общую высоту формы */
+}
+
+/* Сам большой инпут */
+.hero-search-form input {
+  width: 100%;
+  height: 54px !important; /* Четко 54px */
+  box-sizing: border-box !important;
+  padding: 10px 150px 10px 24px !important; /* Отступ справа чуть больше, так как кнопка стала шире */
+  background-color: #ffffff !important;
+  border: none !important;
+  border-radius: 30px !important;
+  font-size: 18px !important; /* Немного увеличил шрифт для баланса */
+  outline: none;
+}
+
+/* Кнопка "Искать" внутри инпута */
+.hero-search-form button {
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+  height: 54px !important; /* Четко 54px — теперь они на одном уровне */
+  box-sizing: border-box !important;
+  padding: 0 32px !important;
+  border: none !important;
+  border-radius: 30px !important;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff !important;
+  cursor: pointer;
+  background: linear-gradient(90deg, #1fa2ff, #12d6df) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hero-search-form button:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+   ТЁМНАЯ ТЕМА ДЛЯ ИНПУТА
+========================================== */
+body.dark .hero-search-form input {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark .hero-search-form input::placeholder {
+  color: #64748b !important;
+}
+
+body.light .hero-search-form input::placeholder {
+  color: #999999 !important;
+}

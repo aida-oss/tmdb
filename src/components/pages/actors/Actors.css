@@ -1,0 +1,88 @@
+/* Основной контейнер секции актеров */
+#actors {
+  padding: 40px 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: #ffffff;
+}
+
+/* Общий заголовок, если захотите добавить, или для центрирования структуры */
+#actors .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Лента актеров с горизонтальным скроллом */
+.actors {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Включаем горизонтальную прокрутку */
+  padding: 15px 5px;
+  scroll-behavior: smooth;
+  
+  /* Кастомизация скроллбара для Webkit (Chrome, Safari, Edge) */
+  scrollbar-width: thin;
+  scrollbar-color: #01b4e4 #161b22;
+}
+
+/* Стилизация полосы прокрутки */
+.actors::-webkit-scrollbar {
+  height: 8px; /* Высота горизонтального скролла */
+}
+
+.actors::-webkit-scrollbar-track {
+  background: #161b22;
+  border-radius: 10px;
+}
+
+.actors::-webkit-scrollbar-thumb {
+  background: #01b4e4;
+  border-radius: 10px;
+}
+
+.actors::-webkit-scrollbar-thumb:hover {
+  background: #0093bc;
+}
+
+/* Карточка актера */
+.card {
+  flex: 0 0 160px; /* Запрещаем карточкам сжиматься, жестко задаем ширину 160px */
+  background-color: #161b22;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column-reverse; /* Меняем порядок: сначала фото сверху, потом текст снизу */
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Фотография актера */
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Картинка заполняет область без искажений */
+  background-color: #0d1117; /* Заглушка на случай, если фото нет */
+}
+
+/* Имя актера */
+.card h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  padding: 10px 8px;
+  text-align: center;
+  color: #f0f6fc;
+  line-height: 1.3;
+  
+  /* Ограничение текста в 2 строки, если имя слишком длинное */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 36px; /* Чтобы все карточки были одинаковой высоты */
+}

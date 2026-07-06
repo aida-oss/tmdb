@@ -1,0 +1,34 @@
+/* Контейнер для секции видео */
+.videos-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Заголовок блока */
+.videos-section h2 {
+  font-size: 22px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Обертка для iframe, центрирующая плеер */
+.video-wrapper {
+  width: 100%;
+  max-width: 800px; /* Ограничиваем максимальную ширину плеера для ПК */
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  overflow: hidden; /* Скругляем углы у видео */
+  background-color: #000; /* Черный фон, пока видео загружается */
+}
+
+/* Адаптивный iframe */
+.video-wrapper iframe {
+  display: block;
+  width: 100%;       /* Растягивается на всю ширину обертки */
+  height: auto;      /* Высота будет вычисляться автоматически */
+  aspect-ratio: 16 / 9; /* Идеальное соотношение сторон для YouTube-плеера */
+  border: none;      /* Убираем рамки */
+}

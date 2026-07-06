@@ -1,0 +1,76 @@
+/* Основной контейнер футера */
+#footer {
+  background-color: #032541; /* Фирменный глубокий синий цвет TMDB */
+  padding: 80px 0;
+  color: #ffffff;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  margin-top: auto; /* Помогает прижать футер к низу, если контента мало */
+}
+
+/* Флекс-сетка для содержимого футера */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* Ограничение размера логотипа, чтобы он не растягивался */
+.footer img {
+  width: 130px;
+  height: auto;
+  display: block;
+}
+
+/* Блоки с навигационными колонками */
+.footer .text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Отступы между ссылками внутри одной колонки */
+}
+
+/* Заголовки колонок */
+.footer .text h3 {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase; /* Делает текст заглавными буквами */
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+}
+
+/* Ссылки внутри колонок */
+.footer .text a {
+  color: rgba(255, 255, 255, 0.7); /* Слегка прозрачный белый для мягкости */
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Эффект при наведении на ссылки */
+.footer .text a:hover {
+  color: #01b4e4; /* Фирменный бирюзовый цвет TMDB */
+}
+
+/* --- Адаптивность для планшетов и мобильных устройств --- */
+@media (max-width: 900px) {
+  #footer {
+    padding: 50px 0;
+  }
+
+  .footer {
+    flex-wrap: wrap; /* Разрешаем перенос колонок на новую строку */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer {
+    flex-direction: column; /* На телефонах выстраиваем всё в один столбец */
+    align-items: center;
+    text-align: center; /* Центрируем текст */
+  }
+
+  .footer .text {
+    align-items: center; /* Центрируем ссылки внутри колонок */
+  }
+}

@@ -1,0 +1,149 @@
+/* Главная секция с фоном-бэкдропом */
+#details {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #ffffff;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Накладываем темную вуаль поверх фонового изображения, чтобы текст легко читался */
+#details::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(
+    to right, 
+    rgba(10, 15, 30, 0.9) 0%, 
+    rgba(10, 15, 30, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+/* Контейнер с постером и описанием */
+.mvd {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Стилизация главного постера */
+.mvd > img {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Блок с текстовой информацией */
+.mvd > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Заголовок фильма */
+.mvd h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Дата и жанры */
+.mvd h2 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #bdc3c7;
+  margin: 0;
+}
+
+/* Добавляем запятые между названиями жанров */
+.mvd h2:nth-of-type(2) {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Продолжительность фильма */
+.mvd h3 {
+  font-size: 15px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  width: fit-content;
+  margin: 0;
+}
+
+/* Слоган фильма (tagline) */
+.mvd h4 {
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  color: #01b4e4; /* Фирменный цвет акцента */
+  margin: 10px 0 0 0;
+}
+
+/* Кнопка "Добавить в избранное" */
+.mvd a {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mvd a:hover {
+  background-color: #e74c3c; /* Превращается в красный при наведении */
+  border-color: #e74c3c;
+  transform: scale(1.1);
+}
+
+/* Секции актеров и видео ниже */
+.actors {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 850px) {
+  .mvd {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .mvd > img {
+    width: 240px;
+    height: 360px;
+  }
+
+  .mvd h3 {
+    margin: 0 auto;
+  }
+
+  .mvd a {
+    position: static; /* Переносим кнопку под текст в мобильной версии */
+    margin: 20px auto 0;
+  }
+}

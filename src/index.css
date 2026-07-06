@@ -1,0 +1,106 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  width: 90%;
+  margin: 0, auto;
+}
+
+/* ==========================================
+   МЯГКАЯ СВЕТЛАЯ ТЕМА (По умолчанию)
+========================================== */
+body.light {
+  background-color: #ffffff !important;
+  color: #0c1a30 !important;
+}
+
+/* Хедер и Футер в светлой теме (глубокий темно-синий, классика TMDB) */
+body.light #header,
+body.light #footer,
+body.light footer {
+  background-color: #032541 !important;
+}
+
+/* Инпуты и селекты в светлой теме */
+body.light #header input,
+body.light #header select {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+body.light #header input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Иконка луны в светлой теме (белая/серебристая) */
+body.light .theme-icon {
+  color: #e2e8f0 !important;
+}
+
+/* Поисковая иконка в светлой теме */
+body.light .searchIcon a {
+  color: #01b4e4 !important;
+}
+
+
+/* ==========================================
+   СТИЛЬНАЯ ТЕМНАЯ ТЕМА 
+========================================== */
+body.dark {
+  background-color: #0b0f19 !important; /* Очень темный, почти черный фон сайта */
+  color: #f8fafc !important;
+}
+
+/* Хедер и Футер в темной теме (максимально темный графит) */
+body.dark #header,
+body.dark #footer,
+body.dark footer {
+  background-color: #0f141c !important; /* Твой новый более темный цвет */
+  border-bottom: 1px solid #1e293b; /* Тонкая стильная линия разделения */
+}
+
+/* Инпуты и селекты в темной теме */
+body.dark #header input,
+body.dark #header select {
+  background-color: #1e293b !important; /* Темный фон для полей */
+  color: #f8fafc !important;            /* Светлый текст внутри */
+  border: 1px solid #334155 !important;  /* Сдержанная рамка */
+}
+body.dark #header input::placeholder {
+  color: #64748b !important;            /* Приглушенный цвет плейсхолдера */
+}
+
+/* Иконка солнца в темной теме (сделаем мягкой неоново-голубой или белой вместо портившей всё желтизны) */
+body.dark .theme-icon {
+  color: #38bdf8 !important; /* Красивый холодный голубой оттенок */
+}
+
+/* Иконка поиска в темной теме */
+body.dark .searchIcon a {
+  color: #38bdf8 !important;
+}
+
+/* Глобальный сброс цветов текста для темной темы */
+body.dark a, 
+body.dark p, 
+body.dark h1, 
+body.dark h2, 
+body.dark h3, 
+body.dark h4, 
+body.dark span,
+body.dark div {
+  color: #f8fafc !important;
+}
+
+/* Кнопка переключателя (сброс системных стилей) */
+.theme-toggle-btn {
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-size: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 5px !important;
+}

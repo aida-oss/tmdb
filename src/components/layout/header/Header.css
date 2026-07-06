@@ -1,0 +1,141 @@
+/* Базовый контейнер для ограничения ширины контента по центру */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Основной фон и обертка шапки */
+#header {
+  background-color: rgb(4, 34, 58);
+  border-bottom: 1px solid #21262d;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Чтобы шапка всегда была поверх контента при скролле */
+}
+
+/* Флекс-контейнер для всех трех логических блоков */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Левая часть: логотип и навигация */
+.headerNav {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Расстояние между ссылками */
+}
+
+.headerNav img {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.headerNav img:hover {
+  transform: scale(1.02);
+}
+
+/* Стили для ссылок меню */
+.headerNav a {
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.headerNav a:hover {
+  color: #58a6ff; /* Красивый синий акцент при наведении */
+}
+
+/* Средняя часть: Блок поиска (инпут + иконка) */
+.two {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 300px; /* Фиксированная ширина для поиска */
+}
+
+.two input {
+  width: 100%;
+  padding: 8px 35px 8px 15px; /* Отступ справа под иконку */
+  background-color: white;
+  border: 1px solid #30363d;
+  border-radius: 20px; /* Скругленные края в стиле современных инпутов */
+  color: #f0f6fc;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.two input:focus {
+  border-color: #58a6ff;
+  background-color: #0d1117;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+}
+
+/* Иконка поиска внутри инпута */
+.searchIcon {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchIcon a {
+  color: #8b949e;
+  cursor: pointer;
+  display: flex;
+  transition: color 0.2s ease;
+}
+
+.searchIcon a:hover {
+  color: #58a6ff;
+}
+
+/* Правая часть: Селектор выбора языка */
+.header select {
+  background-color: white;
+  color: grey;
+  border: 1px solid #30363d;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.header select:focus {
+  border-color: #58a6ff;
+}
+
+.header select option {
+  background-color: white;
+  color: black;
+}
+
+/* --- Адаптивность для мобильных устройств --- */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 0;
+    gap: 15px;
+  }
+  
+  .headerNav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .two {
+    width: 100%; /* Поиск растягивается на всю ширину на мобилках */
+  }
+}
