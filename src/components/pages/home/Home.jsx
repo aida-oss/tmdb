@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./Home.css";
 import { MovieContext } from "../../context";
-import MovieCard from "../MovieCard/MovieCard"; // ⚠️ Проверь этот путь к своей карточке!
+import MovieCard from "../movieCard/MovieCard"; 
 
 const Home = () => {
   const { language } = useContext(MovieContext);
